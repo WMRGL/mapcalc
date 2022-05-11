@@ -1,4 +1,3 @@
-
 import sys
 import os
 import itertools
@@ -31,7 +30,7 @@ def bam_to_wig(infile,outfile):
 @transform(["*.deeptools.wg"], suffix(".deeptools.wg"), ".deeptools.bed")
 def wig_to_bed(infile,outfile):
     print(infile,'-->',outfile)
-    cmd = f"/app/wig2bed < {infile} -x > {outfile}"
+    cmd = f"wig2bed < {infile} -x > {outfile}"
     os.system(cmd)
 
 @follows(wig_to_bed)
@@ -107,4 +106,9 @@ def wig_to_bigwig(infile,outfile):
     os.system(f"/app/wigToBigWig {infile} /app/hg19.genome {outfile}")
 
 pipeline_run(multiprocess=int(processes))
+
+
+
+
+
 
