@@ -1,7 +1,7 @@
 FROM ubuntu:focal
 Run apt-get update && apt-get install
 
-# handy tip from: https://askubuntu.com/questions/909277/avoiding-user-interaction-with-tzdata-when-installing-certbo>
+# handy tip to mitigate python3-parser bug from: https://askubuntu.com/questions/909277/avoiding-user-interaction-with-tzdata-when-installing-certbo>
 ENV TZ=Europe/London
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
